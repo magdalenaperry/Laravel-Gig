@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,39 +14,37 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// ('/') 
 Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => [
-
-            [
-                'id' => 1,
-                'title' => 'Listing One',
-                'description' => 'Lorem ipsum dolor amet elit.'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Listing Two',
-                'description' => 'Lorem ipsum dolor amet elit.'
-            ],
-            [
-                'id' => 3,
-                'title' => 'Listing Three',
-                'description' => 'Lorem ipsum dolor amet elit.'
-            ],
+    return view(
+        'listings',
+        [
+            'heading' => 'Latest Listings',
+            'listings' => Listing::getAll()
         ]
-    ]);
+    );
 });
 
+// find One
+Route::get('/listings/{id}', function ($id) {
+    return view(
+        'listing',
+        [
+            'heading' => 'Listing',
+            'listing' => Listing::getOne($id)
+        ]
+    );
+});
+
+
 // Route::get('/hello', function () {
-//     return response(
-//         '<h1> Hello World</h1>',
-//         200
-//     )
-//         ->header('Content-Type', 'text/plain')
-//         ->header('foo', 'bar');
+//     return response('<h1>Hello World</h1>', 200);
+//     // ->header('Content-Type', 'text/plain')
+//     // ->header('foo', 'bar');
 // });
+
+
+
 
 // Route::get('/posts/{id}', function ($id) {
 //     // die and dump
@@ -54,6 +53,11 @@ Route::get('/', function () {
 //     // ddd($id);
 //     return response('Post' . $id);
 // })->where('id', '[0-9]+');
+
+
+
+
+// http://laravel-gig.test/search?name=Brad&city=Boston
 
 // Route::get('/search', function (Request $request) {
 //     return ($request->name . ' ' . $request->city);
