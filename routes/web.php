@@ -26,12 +26,13 @@ Route::get('/', function () {
 });
 
 // find One
-Route::get('/listings/{id}', function ($id) {
+Route::get('/listings/{listing}', function (Listing $listing) {
+    // 404 pages are automatically populated if done this way...
     return view(
         'listing',
         [
             'heading' => 'Listing',
-            'listing' => Listing::find($id)
+            'listing' => $listing
         ]
     );
 });
