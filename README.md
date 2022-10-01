@@ -81,3 +81,6 @@ php artisan migrate
 php artisan db:seed
 
 php artisan migrate:refresh
+
+php artisan make:factory ListingFactory
+php artisan migrate:refresh --seed

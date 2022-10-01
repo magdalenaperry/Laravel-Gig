@@ -20,7 +20,7 @@ Route::get('/', function () {
         'listings',
         [
             'heading' => 'Latest Listings',
-            'listings' => Listing::getAll()
+            'listings' => Listing::all()
         ]
     );
 });
@@ -31,7 +31,7 @@ Route::get('/listings/{id}', function ($id) {
         'listing',
         [
             'heading' => 'Listing',
-            'listing' => Listing::getOne($id)
+            'listing' => Listing::find($id)
         ]
     );
 });
