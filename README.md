@@ -84,3 +84,7 @@ php artisan migrate:refresh
 
 php artisan make:factory ListingFactory
 php artisan migrate:refresh --seed
+
+php artisan make:controller ListingController
+
+Https/controllers
