@@ -18,8 +18,18 @@ use App\Models\Listing;
 // ('/') 
 Route::get('/', [ListingController::class, 'index']);
 
+
+// show create form has to be before find one, because it renders them as they first appear
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+// store job listing
+Route::post('/listings', [ListingController::class, 'store']);
+
 // find One
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+
+
 
 
 // Route::get('/hello', function () {

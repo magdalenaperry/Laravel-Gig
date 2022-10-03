@@ -88,3 +88,5 @@ php artisan migrate:refresh --seed
 php artisan make:controller ListingController
 
 Https/controllers
+
+composer require itsgoingd/clockwork
