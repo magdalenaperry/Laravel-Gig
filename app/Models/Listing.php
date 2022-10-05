@@ -10,9 +10,14 @@ class Listing extends Model
     use HasFactory;
 
     // necessary property needed to add to a model listing
-    protected $fillable = [
-        'title', 'companyName', 'location', 'website', 'description', 'tags', 'email'
-    ];
+
+    // ADD THIS: 
+    // Model::unguard();
+    // to providers/AppServiceProvider boot function and fillable not needed
+
+    // protected $fillable = [
+    //     'title', 'companyName', 'location', 'website', 'description', 'tags', 'email'
+    // ];
 
     public function scopeFilter($query, array $filters)
     {
