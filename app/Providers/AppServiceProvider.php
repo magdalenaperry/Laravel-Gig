@@ -26,5 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // allowing mass assignment and do not need to add a fillable in Listing.php to create a listing.
         Model::unguard();
+        // find documentation to change styling for pagination
+        // Paginator::useBootstrapSOMETHING
     }
 }

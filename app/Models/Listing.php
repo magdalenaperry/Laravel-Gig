@@ -12,9 +12,9 @@ class Listing extends Model
     // necessary property needed to add to a model listing
 
     // ADD THIS: 
-    // Model::unguard();
-    // to providers/AppServiceProvider boot function and fillable not needed
+    // Model::unguard() to providers/AppServiceProvider boot function and the protected fillable not needed
 
+    // needed to mass add to database
     // protected $fillable = [
     //     'title', 'companyName', 'location', 'website', 'description', 'tags', 'email'
     // ];
