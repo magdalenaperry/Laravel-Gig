@@ -90,3 +90,6 @@ php artisan make:controller ListingController
 Https/controllers
 
 composer require itsgoingd/clockwork
+
+creates the links for new files created in the storage/public/logo folder
+php artisan storage:link

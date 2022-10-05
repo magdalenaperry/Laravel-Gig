@@ -41,7 +41,7 @@ class ListingController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request->file('logo'));
         $formFields = $request->validate([
             'title' => 'required',
             'companyName' => ['required', Rule::unique('listings', 'companyName')],
@@ -51,6 +51,12 @@ class ListingController extends Controller
             'tags' => 'required',
             'description' => 'required'
         ]);
+
+        // file created in new folder: storage/public/logos
+        // http://laravel-gig.test/storage/logos/anrqlFsGhXkMdRKM1baESM8fKvAoei5hBgX2AumV.webp
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
 
         Listing::create($formFields);
 
