@@ -25,8 +25,16 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 // store job listing
 Route::post('/listings', [ListingController::class, 'store']);
 
+// show edit form
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+// update listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
 // find One
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+
 
 
 
