@@ -16,10 +16,10 @@ use App\Http\Controllers\ListingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// ('/') 
+// get all listings 
 Route::get('/', [ListingController::class, 'index']);
 
-// show create form has to be before find one, because it renders them as they first appear
+// show create form
 Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 
 // store job listing
@@ -34,7 +34,10 @@ Route::put('/listings/{listing}', [ListingController::class, 'update'])->middlew
 // delete listing
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
 
-// find One
+// manage listings
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+
+// single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 // show register/create form
@@ -51,6 +54,8 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 
 // login user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+
 
 // Route::get('/hello', function () {
 //     return response('<h1>Hello World</h1>', 200);
